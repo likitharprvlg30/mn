@@ -5,5 +5,5 @@
   tasks:
     - name: Copy the artifact to the deployment directory
       copy:
-        src: "/var/lib/jenkins/workspace/m/target/HelloMaven-1.0-SNAPSHOT.jar"
+        src: "/var/lib/jenkins/workspace/j/target/HelloMaven-1.0-SNAPSHOT.jar"
         dest: "/opt/deployment/HelloMaven.jar"
