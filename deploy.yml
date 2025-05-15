@@ -1,12 +1,9 @@
 ---
-- name: Create a new file on the target system
+- name: Install software on the target machine
   hosts: localhost
-  become: yes
+  become: yes  # Use sudo privileges if necessary
   tasks:
-    - name: Create a new file with content
-      copy:
-        dest: /opt/deployment/newfile.txt
-        content: |
-          This is a new file created using Ansible.
-          It contains some initial content.
-        
+    - name: Install git
+      package:
+        name: git
+        state: present  # Ensures the package is installed
