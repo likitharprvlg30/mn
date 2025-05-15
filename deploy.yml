@@ -1,16 +1,12 @@
 ---
-- name: Deploy Maven Artifact
+- name: Create a new file on the target system
   hosts: localhost
   become: yes
   tasks:
-    - name: Ensure the deployment directory exists
-      file:
-        path: /opt/deployment
-        state: directory
-        mode: '0755'
-
-    - name: Copy the artifact to the deployment directory
+    - name: Create a new file with content
       copy:
-        src: "/var/lib/jenkins/workspace/j/target/HelloMaven-1.0-SNAPSHOT.jar"
-        dest: "/opt/deployment/HelloMaven.jar"
-        mode: '0644'
+        dest: /opt/deployment/newfile.txt
+        content: |
+          This is a new file created using Ansible.
+          It contains some initial content.
+        
