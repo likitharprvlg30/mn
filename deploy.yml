@@ -1,11 +1,11 @@
----
-- name: Deploy Maven Artifact
-  hosts: localhost  # Use 'localhost' if running locally
-  become: yes        # Run tasks with elevated privileges (sudo)
+tasks:
+  - name: Ensure the deployment directory exists
+    file:
+      path: /opt/deployment
+      state: directory
+      mode: '0755'
 
-  tasks:
-    - name: Copy the artifact to the deployment directory
-      copy:
-        src: "/var/lib/jenkins/workspace/mvn/target/HelloMaven-1.0-SNAPSHOT.jar"
-        dest: "/opt/deployment/HelloMaven.jar"
-        mode: '0755'
+  - name: Copy the artifact to the deployment directory
+    copy:
+      src: /var/lib/jenkins/workspace/mvn/*.jar  # adjust this path
+      dest: /opt/deployment/your-artifact.jar                 # adjust the file name as needed
