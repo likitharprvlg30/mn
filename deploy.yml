@@ -2,11 +2,7 @@
   hosts: localhost
   
   tasks:
-	- name: Ensure the deployment directory exists
-  	file:
-    	path: /opt/deploy
-    	state: directory
-    	mode: '0777'
+	
 
 	- name: Copy the artifact to the deployment directory
   	copy:
